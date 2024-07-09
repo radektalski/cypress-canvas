@@ -18,7 +18,7 @@ class LoginPage {
     this.loginButton = new ButtonElement('[id="login_button"]')
   }
 
-  login({ username, password }: LoginData): void {
+  public login({ username, password }: LoginData): void {
     cy.url().should(
       "include",
       routes.login

@@ -1,5 +1,5 @@
 import { TableBase } from "../../base/table.base";
-import { reportsComponent } from "./reports.component";
+import { ReportsComponent, reportsComponent } from "./reports.component";
 
 enum ColumnNames {
   NAME = "Name",
@@ -10,7 +10,7 @@ export class ReportsTable extends TableBase {
     super();
   }
 
-  openReportByName(reportName: string) {
+  public openReportByName(reportName: string): ReportsComponent {
     this.search(reportName, "Reports");
     this.clickViewByColumnValue(ColumnNames.NAME, "Project Profitability");
 

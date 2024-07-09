@@ -19,19 +19,19 @@ export class DropdownElement {
     );
   }
 
-  public openDropdownMenu() {
+  public openDropdownMenu(): DropdownElement {
     cy.get(this.inputSelector).click();
 
     return this;
   }
 
-  public searchForDropdownOption(optionName: string) {
+  public searchForDropdownOption(optionName: string): DropdownElement  {
     this.inputSearchElement.type(optionName);
 
     return this;
   }
 
-  public clickDropdownOptionByNameOrIndex(optionOrIndex: string | number) {
+  public clickDropdownOptionByNameOrIndex(optionOrIndex: string | number): DropdownElement {
     const options = cy.get(this.dropdownOptionsSelector);
     if (typeof optionOrIndex === "string") {
       options.contains(optionOrIndex).click();
@@ -45,7 +45,7 @@ export class DropdownElement {
   public selectOptions(
     optionsName: string | string[],
     searchForOptionFirst = true
-  ) {
+  ): void {
     const options = Array.isArray(optionsName) ? optionsName : [optionsName];
 
     options.forEach((optionName) => {
@@ -57,7 +57,7 @@ export class DropdownElement {
     });
   }
 
-  public verifySelectorOptions(expectedOptions: string[]) {
+  public verifySelectorOptions(expectedOptions: string[]): void {
     cy.get(this.dropdownSelectedOptionsSelector).then(($elements) => {
       const actualTexts = [...$elements].map((el) => el.innerText.trim());
       expect(actualTexts).to.deep.equal(expectedOptions);

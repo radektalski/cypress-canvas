@@ -18,7 +18,7 @@ export abstract class ShortcutsBase {
    *
    * @returns A Cypress chainable object for the left sidebar component.
    */
-  get componentElement() {
+  public get componentElement(): Cypress.Chainable<JQuery<HTMLElement>> {
     return cy.get(this.componentSelector);
   }
 
@@ -29,7 +29,9 @@ export abstract class ShortcutsBase {
    * @returns A Cypress chainable object for the specified sidebar item.
    * @throws Error if the shortcut name is not found in the shortcuts configuration.
    */
-  public getItemByName(shortcutName: string) {
+  public getItemByName(
+    shortcutName: string
+  ): Cypress.Chainable<JQuery<HTMLElement>> {
     if (!Object.keys(this.shortcuts).includes(shortcutName)) {
       throw new Error(
         `${shortcutName} is not available in the shortcuts sidebar`
@@ -45,7 +47,7 @@ export abstract class ShortcutsBase {
    * @returns A Cypress chainable object for the specified sidebar item.
    * @throws Error if the index is out of range for the available shortcuts.
    */
-  public getItemByIndex(index: number) {
+  public getItemByIndex(index: number): Cypress.Chainable<JQuery<HTMLElement>> {
     if (index < 0 || index >= Object.values(this.shortcuts).length) {
       throw new Error(`${index} is not within the valid range for shortcuts`);
     }

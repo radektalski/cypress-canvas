@@ -5,11 +5,11 @@ export class TextElement {
     this.selector = selector;
   }
 
-  get element() {
+  public get element(): Cypress.Chainable<JQuery<HTMLElement>> {
     return cy.get(this.selector);
   }
 
-  public shouldContainsText(value: string) {
-    return this.element.should("contains.text", value);
+  public shouldContainsText(value: string): void {
+    this.element.should("contains.text", value);
   }
 }

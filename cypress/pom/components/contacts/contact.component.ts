@@ -10,7 +10,7 @@ export class ContactComponent {
     this.category = new TextElement(".summary-list");
   }
 
-  verifyContactData(contactData: ContactData): void {
+  public verifyContactData(contactData: ContactData): void {
     contactData.firstName &&
       this.header.shouldContainsText(contactData.firstName);
     contactData.lastName &&

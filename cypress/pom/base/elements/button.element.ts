@@ -5,11 +5,11 @@ export class ButtonElement {
     this.selector = selector;
   }
 
-  get element() {
+  public get element(): Cypress.Chainable<JQuery<HTMLElement>> {
     return cy.get(this.selector);
   }
 
-  public click() {
+  public click(): Cypress.Chainable<JQuery<HTMLElement>> {
     return this.element.click();
   }
 }

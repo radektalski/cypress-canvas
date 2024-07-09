@@ -37,7 +37,7 @@ export abstract class TableBase {
    *
    * @returns Cypress.Chainable<JQuery<HTMLElement>>
    */
-  public getRows() {
+  public getRows(): Cypress.Chainable<JQuery<HTMLElement>> {
     return cy.get(this.rowsSelector);
   }
 
@@ -48,7 +48,7 @@ export abstract class TableBase {
    * @param value - The value to search for in the specified column.
    * @returns Cypress.Chainable<JQuery<HTMLElement>>
    */
-  findRowByColumn(
+  public findRowByColumn(
     columnName: string,
     value: string
   ): Cypress.Chainable<JQuery<HTMLElement>> {
@@ -89,7 +89,7 @@ export abstract class TableBase {
    * @param columnName - The name of the column to search in.
    * @param value - The value to search for in the specified column.
    */
-  clickViewByColumnValue(columnName: string, value: string): void {
+  public clickViewByColumnValue(columnName: string, value: string): void {
     this.findRowByColumn(columnName, value).then((row) => {
       cy.wrap(row).find(this.viewIconSelector).click();
     });
