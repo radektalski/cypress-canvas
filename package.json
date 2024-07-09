@@ -7,7 +7,7 @@
     "@faker-js/faker": "^8.4.1"
   },
   "scripts": {
-    "cy:open:demo": "cypress open --config baseUrl=https://demo.1crmcloud.com/",
-    "cy:run:demo": "cypress run --config baseUrl=https://demo.1crmcloud.com/"
+    "cy:open:demo:chrome": "cypress open --config baseUrl=https://demo.1crmcloud.com/ --browser chrome",
+    "cy:run:demo:chrome": "cypress run --config baseUrl=https://demo.1crmcloud.com/ --browser chrome"
   }
 }

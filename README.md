@@ -29,12 +29,12 @@ Open Cypress Test Runner
 To open the Cypress Test Runner with the base URL set to https://demo.1crmcloud.com/, run:
 
 ```bash
-yarn cy:open:demo
+yarn cy:open:demo:chrome
 ```
 
 Run Cypress Tests in Headless Mode
 To run all Cypress tests in headless mode with the base URL set to https://demo.1crmcloud.com/, run:
 
 ```bash
-yarn cy:run:demo
+yarn cy:run:demo:chrome
 ```

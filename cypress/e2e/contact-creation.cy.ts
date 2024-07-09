@@ -13,12 +13,12 @@ const editedContactData = {
 describe("Contact creation", () => {
   before("Visit and login", () => {
     cy.logStep(BddSteps.GIVEN, "Logged in user");
-    cy.visitAndLogin(loginData);
+    cy.visitAndLoginViaAPI(loginData);
   });
 
   it("Created contact should have correct data", () => {
     cy.logStep(BddSteps.AND, "User opens Sales and Marketing");
-    const contacts = navbarComponent.openContactsFromSalesAndMarketing();
+    const contacts = navbarComponent.openContactsFromSalesAndMarketing(VisitBy.UI);
     cy.logStep(BddSteps.WHEN, "User creates a new contact");
     const createContact = contacts.contactsShortcut.openCreateContact();
     createContact.createContact(basicContactData);

@@ -1,7 +1,8 @@
 export const routes = {
     salesAndMarketing: 'index.php?module=Contacts&action=index',
     reportsAndSettings: 'index.php?module=Reports&action=index',
-    login: 'login.php?login_module=Home&login_action=index'
+    login: 'login.php?login_module=Home&login_action=index',
+    home: 'index.php?module=Home&action=index'
 }
 
 export const endpoints = {

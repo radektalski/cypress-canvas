@@ -41,11 +41,9 @@ Cypress.Commands.add(
           cy.setCookie(name, value);
         });
       }
-      cy.setCookie("ck_Claro_style", "default");
-      cy.setCookie("ck_login_forget", "1");
-      cy.setCookie("ck_login_language", "en_us");
+
     });
-    cy.visit(routes.login);
+    cy.visit(routes.home);
   }
 );
 

@@ -24,13 +24,13 @@ export class NavbarComponent {
     this.navbarSubItemButton = new ButtonElement("a.menu-tab-sub-list");
   }
   private openMainNavbarItem(navbarItem: MainNavbarItems) {
-    return cy.contains(navbarItem).click().trigger('mouseover');
+    return cy.contains(navbarItem).click();
   }
 
   private openSubNavbarItem(subNavbarItem: SubNavbarItem) {
     return this.navbarSubItemButton.element
       .contains(subNavbarItem)
-      .click()
+      .click({ force: true })
       .wait(100);
   }
 
