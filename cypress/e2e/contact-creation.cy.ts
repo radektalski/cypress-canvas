@@ -18,14 +18,14 @@ describe("Contact creation", () => {
 
   it("Created contact should have correct data", () => {
     cy.logStep(BddSteps.AND, "User opens Sales and Marketing");
-    const contacts = navbarComponent.openContactsFromSalesAndMarketing(VisitBy.UI);
+    const contactsPage = navbarComponent.openContactsFromSalesAndMarketing(VisitBy.UI);
     cy.logStep(BddSteps.WHEN, "User creates a new contact");
-    const createContact = contacts.contactsShortcut.openCreateContact();
-    createContact.createContact(basicContactData);
+    const createContactComponent = contactsPage.contactsShortcut.openCreateContact();
+    createContactComponent.createContact(basicContactData);
     cy.logStep(BddSteps.THEN, "Contact has correct data");
     contactComponent.verifyContactData(basicContactData);
     cy.logStep(BddSteps.WHEN, "User updates a new contact");
-    const contact = createContact.clickEdit().createContact(editedContactData);
+    const contact = createContactComponent.clickEdit().createContact(editedContactData);
     cy.logStep(BddSteps.THEN, "Contact has updated data");
     contact.verifyContactData(editedContactData);
   });
